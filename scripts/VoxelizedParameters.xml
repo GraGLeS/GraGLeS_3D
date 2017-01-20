@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Parameters>
+   <StartTime>0</StartTime>
+   <NumberOfParticles>95017</NumberOfParticles> 
+   <NumberOfPointsPerGrain>15</NumberOfPointsPerGrain>
+   <AnalysisTimestep>1</AnalysisTimestep>
+   <NumberOfTimesteps>20000</NumberOfTimesteps>
+   <PlotInterval>100</PlotInterval>
+   <PlotPhysicalQuantities>1</PlotPhysicalQuantities>   
+   <TimeStepSize>0.2</TimeStepSize>
+   <!-- in every x-th Analysisstep the full structure is plotted -> very memory intense -->
+   <BreakupNumber>100</BreakupNumber>
+   <DiscreteSamplingRate>25</DiscreteSamplingRate>
+   <DomainBorderSize>7</DomainBorderSize>   
+   <MicrostructureGenMode>4</MicrostructureGenMode>
+   <!-- USAGE:
+   	(	O		E_READ_FROM_FILE,	)
+		1		E_GENERATE_WITH_VORONOY, 
+	(	2		E_READ_VERTEX,		)
+	(	3		E_GENERATE_TESTCASE,	)
+	(       4               E_READ_VOXELIZED_MICROSTRUCTURE,    )
+
+   -->
+   <ReadFromFilename>Container.raw</ReadFromFilename>
+   <AdditionalFilename>Microstructure.uds</AdditionalFilename>
+   <HAGB_Energy>1.</HAGB_Energy>
+   <!--unit: J/m² -->
+   <HAGB_Mobility>7.5e-14</HAGB_Mobility>
+   <!--unit: m⁴/Js -->
+   <DislocEnPerM>2.5e-10</DislocEnPerM>
+   <!--1/2 Gbb - material constant -->
+   <Physical_Domain_Size>2.52e-4</Physical_Domain_Size>   
+   <!--unit: meter -->
+   <TripleLineDrag>1.e6</TripleLineDrag>
+   <UseMobilityFactor>1</UseMobilityFactor>
+   <UseStoredElasticEnergy>1</UseStoredElasticEnergy>
+   <UseMagneticField>0</UseMagneticField>
+   <MagneticParams>MagneticField.xml</MagneticParams>
+   <DisableConvolutionCorrection>0</DisableConvolutionCorrection>
+   <UseTexture>1</UseTexture>
+   <ExecuteInParallel>1</ExecuteInParallel>
+   <MaximumNumberOfThreads>8</MaximumNumberOfThreads>
+   <GridCoarsement>1</GridCoarsement>
+   <GridCoarsementGradient>0.95</GridCoarsementGradient> 
+   <ConvolutionMode>2</ConvolutionMode>   
+   <!-- USAGE:
+   	(	O		E_LAPLACE,		)
+	(	1		E_LAPLACE_RITCHARDSON,	)
+		2		E_GAUSSIAN, only one available for 3D
+   -->
+   <UniqueGBEnergies>0</UniqueGBEnergies>
+		<!-- USAGE:
+   		0 	Energies defined by ReadShockley Model
+			1	  Energies set to 1			
+   -->
+   <GrainScheduler>1</GrainScheduler>
+      <!-- USAGE:
+	           0       E_ITERATIVE
+        1       E_SQUARES
+   -->
+   <NeighbourhoodGrain>-1</NeighbourhoodGrain>
+   <DecoupleGrains>0</DecoupleGrains>
+   	<!-- USAGE:
+			0	  DEFAULT
+   		1   skips comparison and let grains shring isolated
+   -->
+  <NeighborTracking>1</NeighborTracking>
+  <NeighbourhoodOrder>4</NeighbourhoodOrder>
+  <StoreTaskDistribution>1</StoreTaskDistribution>
+ 
+</Parameters>
