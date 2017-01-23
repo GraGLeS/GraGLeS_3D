@@ -10,7 +10,7 @@ The algorithm utilizes an OpenMP parallelization strategy and is optimized (and 
 An installation guide is provided here:
 http://gragles.readthedocs.org/en/latest/
 
-Operating the 3D version is esentially the same as the 2D. You will need to install jemalloc on your system to overload the linux allocator.
+Operating the 3D version is esentially the same as the 2D. You will need to install jemalloc on your system to overload linux malloc to assure thread-local memory placement.
 
 For detailed information about the algorithm we refer to our publications:
 
@@ -23,6 +23,7 @@ This article is submitted to IOP MSMSE.
 
 An Advanced Level Set Approach to Grain Growth - Accounting for Grain Boundary Anisotropy and Finite Triple Junction Mobility, Acta Materialia, Volume 99, 15 October 2015, Pages 39–48
 DOI information: 10.1016/j.actamat.2015.07.040.
+
 bibtex:
 
 @article{Miessen2015,
@@ -33,6 +34,7 @@ Volume = {99},
 Pages = {39-48},
 Year = {2015} 
 }
+
 (private version attached to the 2D git)
 
 
