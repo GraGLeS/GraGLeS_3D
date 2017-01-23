@@ -26,13 +26,22 @@ DOI information: 10.1016/j.actamat.2015.07.040.
 
 bibtex:
 
-@article{Miessen2015,
+@article{
+
+Miessen2015,
+
 Author = {Mie{\ss}en, C. and Liesenjohann, M. and Barrales-Mora, L. A. and Shvindlerman, L. S. and Gottstein, G.},
+
 Title = {An advanced level set approach to grain growth – Accounting for grain boundary anisotropy and finite triple junction mobility},
+
 Journal = {Acta Materialia},
+
 Volume = {99},
+
 Pages = {39-48},
+
 Year = {2015} 
+
 }
 
 (private version attached to the 2D git)
