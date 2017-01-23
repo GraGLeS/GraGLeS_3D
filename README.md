@@ -1,15 +1,18 @@
 # GraGLeS_3D
 The brand new parallel level-set grain growth solver
 
-Grain Growth Level Set 3dim (GraGLeS_3D) is a software kit to simulate the grain growth phenoma as it occurs in polycrystalline materials. The software is designed to account for anisotropic grain boundaries and finite, in particular, low triple junction mobilities. The algorithm utilizes an OpenMP parallelization strategy and is optimized (and ongoing work) for ccNUMA archictecture.
+Grain Growth Level Set 3dim (GraGLeS_3D) is a software kit to simulate the grain growth phenoma as it occurs in polycrystalline materials. The software is designed to account for anisotropic grain boundaries and finite, in particular, low triple junction mobilities (ongoing work). 
+The algorithm considers GB properties in physical units as input but utilizes normilized quantities internally. You must specifiy the sample expanse in one direction ( the sample must be always a cube ), the HAGB mobility [m^4/Js] and the HAGB energy [J/m^2]. If you want to construct very specific input microstructure with certain orientation gradients or stored elastic eneries related to orientations of grains or subgrains, you can construct your input samples using the microstructure generator.
+https://github.com/GraGLeS/IMM_MicrostructureGenerator
+
+The algorithm utilizes an OpenMP parallelization strategy and is optimized (and ongoing work) for ccNUMA archictecture. If you wnat to swithc on this features set the <GrainScheduler> 1. 0 is default.
 
 An installation guide is provided here:
-
 http://gragles.readthedocs.org/en/latest/
 
 Operating the 3D version is esentially the same as the 2D. You will need to install jemalloc on your system to overload the linux allocator.
 
-For detailed information about the physics we refer to our Acta Materialia paper (private version attached to the git):
+For detailed information about the algorithm we refer to our publications:
 
 Articles:
 
@@ -30,6 +33,9 @@ Volume = {99},
 Pages = {39-48},
 Year = {2015} 
 }
+(private version attached to the 2D git)
+
+
 
 Acknowledgements:
 
