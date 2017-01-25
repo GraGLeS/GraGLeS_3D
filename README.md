@@ -18,7 +18,8 @@ Articles:
 
 A highly efficient 3D level-set grain growth algorithm tailored for ccNUMA architecture
 C. Mießen, N. Velinov, G. Gottstein, L.A. Barrales-Mora
-https://arxiv.org/submit/1781715/view
+https://arxiv.org/abs/1701.06658
+Cite as:	arXiv:1701.06658
 This article is submitted to IOP MSMSE.
 
 An Advanced Level Set Approach to Grain Growth - Accounting for Grain Boundary Anisotropy and Finite Triple Junction Mobility, Acta Materialia, Volume 99, 15 October 2015, Pages 39–48
