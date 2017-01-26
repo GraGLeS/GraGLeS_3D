@@ -1,16 +1,18 @@
 # GraGLeS_3D
-The brand new parallel level-set grain growth solver
+The brand new parallel level-set grain growth solver - faster, more effitient and bigger networks than ever before
 
-Grain Growth Level Set 3dim (GraGLeS_3D) is a software kit to simulate the grain growth phenoma as it occurs in polycrystalline materials. The software is designed to account for anisotropic grain boundaries and finite, in particular, low triple junction mobilities (ongoing work). 
-The algorithm considers GB properties in physical units as input but utilizes normilized quantities internally. You must specifiy the sample expanse in one direction ( the sample must be always a cube ), the HAGB mobility [m^4/Js] and the HAGB energy [J/m^2]. If you want to construct very specific input microstructure with certain orientation gradients or stored elastic eneries related to orientations of grains or subgrains, you can construct your input samples using the microstructure generator.
+Grain Growth Level Set 3dim (GraGLeS_3D) is a software kit to simulate the grain growth and related phenoma such as recrystallization in polycrytalline materials. The software is designed to account for anisotropic grain boundaries, finite, in particular, low triple junction mobilities (ongoing work) and any additional driving force such as bulk energy densities resulting from anisotropic magnetic
+susceptibilities or orientation dependent stored elastic energy densities.
+
+The algorithm considers pysical units as input argumenst but utilizes normilized quantities internally. To mimic very specific material properties, such as grain size, GB mobilities, GB energies and bulk energies or even microstructure with certain orientation gradients or stored elastic energies related to orientations of grains or subgrains, you are encouraged to use the IMM microstructure generator:
 https://github.com/GraGLeS/IMM_MicrostructureGenerator
 
-The algorithm utilizes an OpenMP parallelization strategy and is optimized (and ongoing work) for ccNUMA archictecture. If you wnat to swithc on this features set the <GrainScheduler> 1. 0 is default.
+The GraGLeS algorithm utilizes an OpenMP parallelization strategy and is optimized for ccNUMA archictecture. If you want to switch on this features set the <GrainScheduler> to 1. 0 is default.
 
 An installation guide is provided here:
 http://gragles.readthedocs.org/en/latest/
 
-Operating the 3D version is esentially the same as the 2D. You will need to install jemalloc on your system to overload linux malloc to assure thread-local memory placement.
+Operating the 3D version is essentially the same as the 2D. You will need to install jemalloc on your system to overload linux malloc to assure thread-local memory placement.
 
 For detailed information about the algorithm we refer to our publications:
 
