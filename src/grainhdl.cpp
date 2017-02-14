@@ -764,8 +764,7 @@ void grainhdl::save_Texture() {
 				totalSurface += grains[i]->getSurface() * 0.5;
 				total_energy += grains[i]->getEnergy() * 0.5;
 				TextureData to_write = grains[i]->collectTextureData();
-				fwrite(&to_write, sizeof(TextureData), 1,
-						binaryTexture);
+				fwrite(&to_write, sizeof(TextureData), 1, binaryTexture);
 				vector<Face>* myfaces = grains[i]->get_Faces();
 				for (auto it : *myfaces) {
 					fwrite(&(it), sizeof(Face), 1, binaryFaces);
@@ -1092,7 +1091,9 @@ void grainhdl::saveNetworkAsVoxelContainer() {
 		}
 	}
 	for (auto it : grains) {
-		if (it == NULL || it->grainExists() == false || it->getID() == 0)
+		if (it == NULL)
+			continue;
+		if (it->grainExists() == false || it->getID() == 0)
 			continue;
 		// ID, x, y, z, bunge1, bunge2, bunge3, xmin, xmax, ymin, ymax, zmin, zmax, volume, stored
 		double *bunge = it->getOrientationBunge();
@@ -1121,7 +1122,7 @@ void grainhdl::saveNetworkAsVoxelContainer() {
 	fwrite(container->getRawData(), sizeof(unsigned int),
 			(realDomainSize * realDomainSize * realDomainSize), binaryFile);
 	fclose(binaryFile);
-
+	filename2.str( std::string() );
 	filename2.clear();
 	filename2 << "ContainerVolumeEnergy_size_" << realDomainSize << "_t_"
 			<< loop << ".raw";
@@ -1131,11 +1132,18 @@ void grainhdl::saveNetworkAsVoxelContainer() {
 			for (int j = 0; j < realDomainSize; j++) {
 				double energy;
 				if (Settings::UseStoredElasticEnergy) {
-					energy = grains[container->getValueAt(i, j, k)]->get_SEE();
+					LSbox* access = getGrainByID(
+							container->getValueAt(i, j, k));
+					if (access == NULL)
+						continue;
+					energy = access->get_SEE();
 					fwrite(&energy, sizeof(double), 1, binaryFile);
 				} else if (Settings::UseMagneticField) {
-					energy =
-							grains[container->getValueAt(i, j, k)]->get_magneticEnergy();
+					LSbox* access = getGrainByID(
+							container->getValueAt(i, j, k));
+					if (access == NULL)
+						continue;
+					energy = access->get_magneticEnergy();
 					fwrite(&energy, sizeof(double), 1, binaryFile);
 				}
 			}
