@@ -895,7 +895,7 @@ void grainhdl::run_sim() {
 							% int(
 									Settings::AnalysisTimestep
 											* Settings::PlotInterval)) == 0) {
-//				saveNetworkAsVoxelContainer();
+			saveNetworkAsVoxelContainer();
 //				plot_contour();
 			}
 		}
